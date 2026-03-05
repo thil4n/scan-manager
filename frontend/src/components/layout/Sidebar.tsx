@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {
   HomeIcon,
   CubeIcon,
+  ClipboardDocumentListIcon,
   PlusCircleIcon,
   Cog6ToothIcon,
   ArrowRightStartOnRectangleIcon,
@@ -10,7 +11,8 @@ import {
 
 const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: HomeIcon },
-  { to: '/releases', label: 'Releases', icon: CubeIcon },
+  { to: '/products', label: 'Products', icon: CubeIcon },
+  { to: '/releases', label: 'Releases', icon: ClipboardDocumentListIcon },
   { to: '/releases/new', label: 'New Release', icon: PlusCircleIcon },
   { to: '/admin', label: 'Admin', icon: Cog6ToothIcon },
 ];

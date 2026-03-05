@@ -4,6 +4,7 @@ import { ProtectedLayout, PublicLayout } from './routes';
 
 import Login from '@/pages/Login';
 import Dashboard from '@/pages/Dashboard';
+import Products from '@/pages/Products';
 import Releases from '@/pages/Releases';
 import NewRelease from '@/pages/NewRelease';
 import ReleaseDetail from '@/pages/ReleaseDetail';
@@ -32,6 +33,7 @@ export default function App() {
           {/* Protected routes */}
           <Route element={<ProtectedLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/releases" element={<Releases />} />
             <Route path="/releases/new" element={<NewRelease />} />
             <Route path="/releases/:id" element={<ReleaseDetail />} />
