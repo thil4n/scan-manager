@@ -18,6 +18,9 @@ public class Product {
     private UUID id;
 
     @Column(nullable = false)
+    private String slug;
+
+    @Column(nullable = false)
     private String name;
 
     @Column

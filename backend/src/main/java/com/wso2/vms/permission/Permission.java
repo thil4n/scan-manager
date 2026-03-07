@@ -1,9 +1,6 @@
 package com.wso2.vms.permission;
 
 import jakarta.persistence.*;
-import java.util.List;
-
-import com.wso2.vms.operator.Operator;
 
 @Entity
 @Table(name = "permissions")
@@ -21,9 +18,6 @@ public class Permission {
     @ManyToOne
     @JoinColumn(name = "permission_set_id")
     private PermissionSet permissionSet;
-
-    @ManyToMany(mappedBy = "permissions")
-    private List<Operator> operators;
 
     public Long getId() {
         return id;
@@ -56,13 +50,4 @@ public class Permission {
     public void setPermissionSet(PermissionSet permissionSet) {
         this.permissionSet = permissionSet;
     }
-
-    public List<Operator> getOperators() {
-        return operators;
-    }
-
-    public void setOperators(List<Operator> operators) {
-        this.operators = operators;
-    }
-
 }
