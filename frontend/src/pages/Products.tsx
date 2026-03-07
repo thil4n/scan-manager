@@ -80,7 +80,7 @@ export default function Products() {
     },
     {
       key: 'bu',
-      header: 'Business Unit',
+      header: 'BU',
       sortable: true,
       render: (p) => p.bu,
     },
