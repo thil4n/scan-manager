@@ -1,0 +1,37 @@
+# Java build files
+*.class
+*.jar
+*.war
+*.ear
+
+# Gradle
+.gradle/
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Gradle cache files
+*.lock
+*.bin
+*.log
+*.hashes
+
+# IntelliJ IDEA / Eclipse / VSCode
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.vscode/
+
+# Logs
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Spring Boot
+ta
