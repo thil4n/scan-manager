@@ -1,4 +1,4 @@
-package com.wso2.vms.api.scanner.api;
+package com.wso2.vms.scanner;
 
 import com.wso2.vms.api.scanner.model.ScanJob;
 import com.wso2.vms.api.scanner.service.ScanJobService;
