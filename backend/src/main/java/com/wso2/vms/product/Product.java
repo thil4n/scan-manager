@@ -74,4 +74,9 @@ public class Product {
     public Date getUpdatedAt() {
         return updatedAt;
     }
+
+    public void setSlug(String slug2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setSlug'");
+    }
 }

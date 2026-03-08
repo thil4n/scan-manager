@@ -40,7 +40,7 @@ public class ProductController {
     @PatchMapping("/{id}")
     @PreAuthorize("isAuthenticated()")
     public ResponseEntity<ProductResponseDto> updateProduct(@PathVariable UUID id,
-            @RequestBody UpdateProductDto dto) {
+            @Valid @RequestBody UpdateProductDto dto) {
         return ResponseEntity.ok(productService.update(id, dto));
     }
 
