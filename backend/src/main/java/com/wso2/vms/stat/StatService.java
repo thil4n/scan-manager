@@ -6,9 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.wso2.vms.product.entity.ProductRepository;
 import com.wso2.vms.release.ReleaseRepository;
 import com.wso2.vms.scan.ScanRepository;
-import com.wso2.vms.vulnerability.Severity;
+import com.wso2.vms.vulnerability.entity.Severity;
 import com.wso2.vms.vulnerability.VulnerabilityRepository;
-import com.wso2.vms.vulnerability.VulnerabilityStatus;
+import com.wso2.vms.vulnerability.entity.VulnerabilityStatus;
 
 @Service
 @Transactional
