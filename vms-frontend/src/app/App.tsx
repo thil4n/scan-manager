@@ -1,14 +1,26 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ProtectedLayout, PublicLayout } from './routes';
+import { AuthProvider } from '@/context/AuthContext';
+import { ToastProvider } from '@/context/ToastContext';
+import { ProtectedLayout, PublicLayout, RoleGuard } from './routes';
 
 import Login from '@/pages/Login';
 import Dashboard from '@/pages/Dashboard';
-import Products from '@/pages/Products';
-import Releases from '@/pages/Releases';
-import NewRelease from '@/pages/NewRelease';
-import ReleaseDetail from '@/pages/ReleaseDetail';
-import Admin from '@/pages/Admin';
+
+// Products
+import Products from '@/pages/products/Products';
+import ProductDetail from '@/pages/products/ProductDetail';
+
+// Scan Jobs
+import ScanJobs from '@/pages/scanjobs/ScanJobs';
+
+// Reports
+import Reports from '@/pages/reports/Reports';
+import ReportDetail from '@/pages/reports/ReportDetail';
+
+// Admin
+import Admin from '@/pages/admin/Admin';
+import Users from '@/pages/admin/Users';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,27 +35,49 @@ const queryClient = new QueryClient({
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Routes>
-          {/* Public routes */}
-          <Route element={<PublicLayout />}>
-            <Route path="/login" element={<Login />} />
-          </Route>
+      <AuthProvider>
+        <ToastProvider>
+          <BrowserRouter>
+            <Routes>
+              {/* Public routes */}
+              <Route element={<PublicLayout />}>
+                <Route path="/login" element={<Login />} />
+              </Route>
 
-          {/* Protected routes */}
-          <Route element={<ProtectedLayout />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/releases" element={<Releases />} />
-            <Route path="/releases/new" element={<NewRelease />} />
-            <Route path="/releases/:id" element={<ReleaseDetail />} />
-            <Route path="/admin" element={<Admin />} />
-          </Route>
+              {/* Protected routes */}
+              <Route element={<ProtectedLayout />}>
+                <Route path="/dashboard" element={<Dashboard />} />
 
-          {/* Fallback */}
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
-        </Routes>
-      </BrowserRouter>
+                {/* Product Management */}
+                <Route path="/products" element={<Products />} />
+                <Route path="/products/:id" element={<ProductDetail />} />
+
+                {/* Scan Jobs — Product Team, Security Team, Admin */}
+                <Route element={<RoleGuard roles={['ADMIN', 'SECURITY_TEAM', 'PRODUCT_TEAM']} />}>
+                  <Route path="/scan-jobs" element={<ScanJobs />} />
+                </Route>
+
+                {/* Reports */}
+                <Route path="/reports" element={<Reports />} />
+                <Route path="/reports/:id" element={<ReportDetail />} />
+
+                {/* Admin — Admin + Security Team */}
+                <Route element={<RoleGuard roles={['ADMIN', 'SECURITY_TEAM']} />}>
+                  <Route path="/admin" element={<Admin />} />
+                </Route>
+
+                {/* Users — Admin only */}
+                <Route element={<RoleGuard roles={['ADMIN']} />}>
+                  <Route path="/admin/users" element={<Users />} />
+                </Route>
+              </Route>
+
+              {/* Fallback */}
+              <Route path="*" element={<Navigate to="/dashboard" replace />} />
+            </Routes>
+          </BrowserRouter>
+        </ToastProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

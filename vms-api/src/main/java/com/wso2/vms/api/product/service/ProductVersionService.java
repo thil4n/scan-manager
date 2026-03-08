@@ -1,4 +1,12 @@
-package com.wso2.vms.api.product;
+package com.wso2.vms.api.product.service;
+import com.wso2.vms.api.product.entity.ProductVersion;
+import com.wso2.vms.api.product.entity.ProductRepository;
+import com.wso2.vms.api.product.entity.Product;
+import com.wso2.vms.api.product.entity.ProductVersionRepository;
+import com.wso2.vms.api.product.dto.ProductVersionResponseDto;
+import com.wso2.vms.api.product.dto.CreateProductVersionDto;
+import com.wso2.vms.api.product.dto.UpdateProductVersionDto;
+import com.wso2.vms.api.product.mapper.ProductVersionMapper;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

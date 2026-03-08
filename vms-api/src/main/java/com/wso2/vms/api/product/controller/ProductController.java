@@ -1,4 +1,9 @@
 package com.wso2.vms.api.product.controller;
+import com.wso2.vms.api.product.service.ProductService;
+import com.wso2.vms.api.product.dto.ProductResponseDto;
+import com.wso2.vms.api.product.dto.CreateProductDto;
+import com.wso2.vms.api.product.dto.UpdateProductDto;
+import com.wso2.vms.api.product.mapper.ProductMapper;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ShieldCheckIcon } from '@heroicons/react/24/outline';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -12,20 +14,21 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    setLoading(true);
-
-    // Mock login — accept any non-empty credentials
-    await new Promise((resolve) => setTimeout(resolve, 500));
 
     if (!email || !password) {
-      setError('Please enter email and password.');
-      setLoading(false);
+      setError('Please enter your email and password.');
       return;
     }
 
-    localStorage.setItem('auth_token', 'mock-jwt-token-' + Date.now());
-    setLoading(false);
-    navigate('/dashboard');
+    setLoading(true);
+    try {
+      await login({ email, password });
+      navigate('/dashboard');
+    } catch {
+      setError('Invalid credentials. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
@@ -37,8 +40,8 @@ export default function Login() {
         {/* Logo */}
         <div className="mb-8 flex flex-col items-center">
           <ShieldCheckIcon className="h-10 w-10 text-blue-500" />
-          <h1 className="mt-3 text-xl font-bold text-white">ScanManager</h1>
-          <p className="mt-1 text-sm text-gray-500">Pre-Release Security Scan Portal</p>
+          <h1 className="mt-3 text-xl font-bold text-white">VMS</h1>
+          <p className="mt-1 text-sm text-gray-500">Vulnerability Management System</p>
         </div>
 
         {/* Form */}
@@ -66,7 +69,7 @@ export default function Login() {
             />
           </div>
 
-          {error && <p className="text-sm text-red-500">{error}</p>}
+          {error && <p className="text-sm text-red-400">{error}</p>}
 
           <button
             type="submit"

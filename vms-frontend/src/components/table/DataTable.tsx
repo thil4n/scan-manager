@@ -18,7 +18,7 @@ export interface Column<T> {
 interface DataTableProps<T> {
   columns: Column<T>[];
   data: T[];
-  keyExtractor: (row: T) => string;
+  keyExtractor?: (row: T) => string;
   emptyMessage?: string;
 }
 
@@ -33,8 +33,7 @@ export default function DataTable<T>({
   data,
   keyExtractor,
   emptyMessage = 'No data available.',
-}: DataTableProps<T>) {
-  const [sortKey, setSortKey] = useState<string | null>(null);
+}: DataTableProps<T>) {  const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDir, setSortDir] = useState<SortDir>('asc');
 
   const handleSort = (key: string) => {
@@ -89,8 +88,8 @@ export default function DataTable<T>({
           </tr>
         </thead>
         <tbody className="divide-y divide-gray-800/50 bg-gray-900">
-          {sortedData.map((row) => (
-            <tr key={keyExtractor(row)} className="transition-colors hover:bg-gray-800/40">
+          {sortedData.map((row, idx) => (
+            <tr key={keyExtractor ? keyExtractor(row) : idx} className="transition-colors hover:bg-gray-800/40">
               {columns.map((col) => (
                 <td key={col.key} className="px-4 py-3 text-gray-300">
                   {col.render(row)}

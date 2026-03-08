@@ -1,4 +1,4 @@
-import type { Severity } from '@/types/scan';
+import type { Severity } from '@/types/report';
 
 interface SeverityBadgeProps {
   severity: Severity;
@@ -9,6 +9,7 @@ const severityConfig: Record<Severity, { className: string }> = {
   HIGH: { className: 'bg-orange-500/15 text-orange-500 border-orange-500/30' },
   MEDIUM: { className: 'bg-yellow-400/15 text-yellow-400 border-yellow-400/30' },
   LOW: { className: 'bg-blue-400/15 text-blue-400 border-blue-400/30' },
+  INFO: { className: 'bg-gray-500/15 text-gray-400 border-gray-500/30' },
 };
 
 export default function SeverityBadge({ severity }: SeverityBadgeProps) {

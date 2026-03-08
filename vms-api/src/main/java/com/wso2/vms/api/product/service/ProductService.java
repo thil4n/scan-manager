@@ -1,4 +1,10 @@
 package com.wso2.vms.api.product.service;
+import com.wso2.vms.api.product.entity.Product;
+import com.wso2.vms.api.product.entity.ProductRepository;
+import com.wso2.vms.api.product.dto.ProductResponseDto;
+import com.wso2.vms.api.product.dto.CreateProductDto;
+import com.wso2.vms.api.product.dto.UpdateProductDto;
+import com.wso2.vms.api.product.mapper.ProductMapper;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

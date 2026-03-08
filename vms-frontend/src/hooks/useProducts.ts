@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   fetchProducts,
+  fetchProductById,
   createProduct,
   updateProduct,
   deleteProduct,
@@ -11,6 +12,14 @@ export function useProducts() {
   return useQuery({
     queryKey: ['products'],
     queryFn: fetchProducts,
+  });
+}
+
+export function useProduct(id: string) {
+  return useQuery({
+    queryKey: ['products', id],
+    queryFn: () => fetchProductById(id),
+    enabled: !!id,
   });
 }
 
@@ -28,8 +37,9 @@ export function useUpdateProduct() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (payload: UpdateProductPayload) => updateProduct(payload),
-    onSuccess: () => {
+    onSuccess: (_data, vars) => {
       queryClient.invalidateQueries({ queryKey: ['products'] });
+      queryClient.invalidateQueries({ queryKey: ['products', vars.id] });
     },
   });
 }

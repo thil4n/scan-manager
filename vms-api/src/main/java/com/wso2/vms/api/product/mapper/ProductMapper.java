@@ -1,4 +1,6 @@
 package com.wso2.vms.api.product.mapper;
+import com.wso2.vms.api.product.entity.Product;
+import com.wso2.vms.api.product.dto.ProductResponseDto;
 
 public class ProductMapper {
 

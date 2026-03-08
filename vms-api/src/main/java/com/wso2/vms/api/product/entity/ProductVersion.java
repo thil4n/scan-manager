@@ -1,4 +1,5 @@
-package com.wso2.vms.api.product;
+package com.wso2.vms.api.product.entity;
+import com.wso2.vms.api.product.entity.Product;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
