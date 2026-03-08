@@ -20,6 +20,13 @@ public class BuisnessUnit {
     @Column(nullable = false)
     private String name;
 
+    @CreationTimestamp
+    @Column(updatable = false, name = "created_at")
+    private Date createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private Date updatedAt;
 
     public UUID getId() {
         return id;
@@ -31,5 +38,13 @@ public class BuisnessUnit {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 }
