@@ -1,4 +1,4 @@
-package com.wso2.vms.product;
+package com.wso2.vms.product.service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

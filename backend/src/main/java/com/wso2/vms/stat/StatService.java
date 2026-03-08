@@ -3,7 +3,7 @@ package com.wso2.vms.stat;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.wso2.vms.product.ProductRepository;
+import com.wso2.vms.product.entity.ProductRepository;
 import com.wso2.vms.release.ReleaseRepository;
 import com.wso2.vms.scan.ScanRepository;
 import com.wso2.vms.vulnerability.Severity;

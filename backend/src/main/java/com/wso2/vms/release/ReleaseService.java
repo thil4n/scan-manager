@@ -4,8 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.wso2.vms.product.Product;
-import com.wso2.vms.product.ProductRepository;
+import com.wso2.vms.product.entity.Product;
+import com.wso2.vms.product.entity.ProductRepository;
 
 import java.util.List;
 import java.util.UUID;

@@ -5,7 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
-import com.wso2.vms.product.Product;
+import com.wso2.vms.product.entity.Product;
 
 import java.time.LocalDate;
 import java.util.Date;

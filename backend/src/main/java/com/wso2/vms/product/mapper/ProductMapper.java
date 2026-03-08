@@ -1,4 +1,4 @@
-package com.wso2.vms.product;
+package com.wso2.vms.product.mapper;
 
 public class ProductMapper {
 

@@ -1,4 +1,4 @@
-package com.wso2.vms.product;
+package com.wso2.vms.product.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -75,8 +75,7 @@ public class Product {
         return updatedAt;
     }
 
-    public void setSlug(String slug2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setSlug'");
+    public void setSlug(String slug) {
+        this.slug = slug;
     }
 }

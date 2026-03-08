@@ -1,4 +1,4 @@
-package com.wso2.vms.product;
+package com.wso2.vms.product.controller;
 
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
