@@ -1,4 +1,4 @@
-package com.wso2.vms.api.product;
+package com.wso2.vms.api.product.dto;
 
 public class UpdateProductDto {
     private java.util.UUID businessUnitId;

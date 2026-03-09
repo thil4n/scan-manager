@@ -1,4 +1,4 @@
-package com.wso2.vms.api.product;
+package com.wso2.vms.api.product.dto;
 
 import java.util.Date;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package com.wso2.vms.api.product;
+package com.wso2.vms.api.product.entity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

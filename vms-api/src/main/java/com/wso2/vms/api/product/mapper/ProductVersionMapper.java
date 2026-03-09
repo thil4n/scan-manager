@@ -1,4 +1,7 @@
-package com.wso2.vms.api.product;
+package com.wso2.vms.api.product.mapper;
+
+import com.wso2.vms.api.product.entity.ProductVersion;
+import com.wso2.vms.api.product.dto.ProductVersionResponseDto;
 
 public class ProductVersionMapper {
     public static ProductVersionResponseDto toDto(ProductVersion version) {

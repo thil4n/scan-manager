@@ -1,4 +1,4 @@
-package com.wso2.vms.api.product;
+package com.wso2.vms.api.product.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import java.util.UUID;

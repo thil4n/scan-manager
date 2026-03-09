@@ -1,5 +1,10 @@
-package com.wso2.vms.api.product;
+package com.wso2.vms.api.product.controller;
 
+import com.wso2.vms.api.product.dto.CreateProductVersionDto;
+import com.wso2.vms.api.product.dto.ProductVersionResponseDto;
+import com.wso2.vms.api.product.dto.UpdateProductVersionDto;
+import com.wso2.vms.api.product.mapper.ProductVersionMapper;
+import com.wso2.vms.api.product.service.ProductVersionService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
